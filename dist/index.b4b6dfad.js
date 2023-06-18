@@ -2964,7 +2964,7 @@ const MyFlixApplication = ()=>{
 };
 _c = MyFlixApplication;
 // Finds the root of your app
-const container = document.querySelector("root");
+const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
 // Tells React to render your app in the root DOM element
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
