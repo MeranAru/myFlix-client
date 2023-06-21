@@ -27315,11 +27315,24 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([
         {
             id: 1,
-            Title: "Avengers:Endgame",
-            Description: "Avengers assemble once more to defeat Thanos and to restore the Universe and balance to the world.",
-            Genre: "Action",
-            Director: "Anthony Russo",
-            Image: "https://www.google.com/search?rlz=1C5CHFA_enCA913CA913&sxsrf=APwXEde_XHWZ-sTNQL0e2C_yzJJo7uEBkw:1687363050549&q=avengers+endgame&tbm=isch&sa=X&ved=2ahUKEwj2tfCZ3dT_AhV0IH0KHSEsA_AQ0pQJegQIDRAB&biw=1440&bih=702&dpr=2#imgrc=4K2BvVWQhfuweM"
+            title: "Avengers:Endgame",
+            description: "Avengers assemble once more to defeat Thanos and to restore the Universe and balance to the world.",
+            genre: "Action",
+            director: "Anthony Russo"
+        },
+        {
+            id: 2,
+            title: "The Dark Knight",
+            description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+            genre: "Action",
+            director: "Christopher Nolan"
+        },
+        {
+            id: 3,
+            title: "Spider-Man: No way Home",
+            description: "Spider man has got his identity revealed and got help from Doctor Strange. A spell went wrong and dangerous enemies from other worlds start to appear where Peter learns what it means to be Spider-Man.",
+            genre: "Action",
+            director: "Jon Watts"
         }
     ]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
@@ -27328,14 +27341,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 21,
+        lineNumber: 34,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 26,
+        lineNumber: 39,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27346,16 +27359,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 31,
+                lineNumber: 44,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 29,
+        lineNumber: 42,
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "4R9ecpNSrk+qsVFVLFm7qXFR/YM=");
+_s(MainView, "Z7qecFjM2XaP0TI9RXiwr2azMnc=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
