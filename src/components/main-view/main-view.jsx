@@ -9,7 +9,7 @@ export const MainView = () => {
             title: "Avengers:Endgame",
             description: "Avengers assemble once more to defeat Thanos and to restore the Universe and balance to the world.",
             genre: "Action",
-            director: "Anthony Russo",
+            director: "Anthony Russo", 
     },
     {
         id: 2,
