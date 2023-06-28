@@ -27319,7 +27319,7 @@ const MainView = ()=>{
                 return {
                     id: doc.key,
                     title: doc.title,
-                    desciption: doc.desciption,
+                    description: doc.description,
                     genre: doc.genre,
                     director: doc.director_name?.[0]
                 };
