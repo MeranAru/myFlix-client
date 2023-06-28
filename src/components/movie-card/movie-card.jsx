@@ -16,8 +16,8 @@ MovieCard.propTypes = {
     movie:PropTypes.shape({
         title:PropTypes.string.isRequired,
         description:PropTypes.string.isRequired,
-        genre:PropTypes.string.isRequired,
-        director:PropTypes.string.isRequired
+        genre:PropTypes.string,
+        director:PropTypes.string
     }).isRequired,
-    onMovieClick:PropTypes.func.isRequired
-};
+    onMovieClick: PropTypes.func.isRequired
+    }; 
