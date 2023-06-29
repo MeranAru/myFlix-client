@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
     const [movies, setMovies] = useState([]);
+
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         fetch("https://git.heroku.com/movie-api-meran.git")
@@ -18,12 +20,11 @@ export const MainView = () => {
                         director: doc.director_name?.[0]
                     };
                 });
+                
                 setMovies(moviesFromApi);
                 console.log("movies from api", data);
                 });
             }, []);
-
-    const [selectedMovie, setSelectedMovie] = useState(null);
 
     if (selectedMovie) {
         return (
