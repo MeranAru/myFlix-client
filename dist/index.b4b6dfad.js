@@ -27315,14 +27315,14 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
-        fetch("https://git.heroku.com/movie-api-meran.git").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.docs.map((doc)=>{
+        fetch("https://movie-api-meran.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.map((doc)=>{
                 return {
-                    id: doc.key,
-                    title: doc.title,
-                    description: doc.description,
-                    genre: doc.genre,
-                    director: doc.director_name?.[0]
+                    id: doc._id,
+                    title: doc.Title,
+                    description: doc.Description,
+                    genre: doc.Genre,
+                    director: doc.Director_name?.[0]
                 };
             });
             setMovies(moviesFromApi);
@@ -27401,8 +27401,15 @@ MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired,
         description: (0, _propTypesDefault.default).string.isRequired,
-        genre: (0, _propTypesDefault.default).string,
-        director: (0, _propTypesDefault.default).string
+        genre: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string,
+            Description: (0, _propTypesDefault.default).string
+        }),
+        director: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string,
+            Bio: (0, _propTypesDefault.default).string,
+            Birth: (0, _propTypesDefault.default).string
+        })
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
