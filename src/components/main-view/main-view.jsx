@@ -16,8 +16,8 @@ export const MainView = () => {
                         id: doc._id,
                         title: doc.Title,
                         description: doc.Description,
-                        genre: doc.Genre,
-                        director: doc.Director_name?.[0]
+                        genre: doc.Genre.Name,
+                        director: doc.Director.Name
                     };
                 });
                 
