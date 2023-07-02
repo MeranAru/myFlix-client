@@ -27321,8 +27321,8 @@ const MainView = ()=>{
                     id: doc._id,
                     title: doc.Title,
                     description: doc.Description,
-                    genre: doc.Genre,
-                    director: doc.Director_name?.[0]
+                    genre: doc.Genre.Name,
+                    director: doc.Director.Name
                 };
             });
             setMovies(moviesFromApi);
@@ -27401,15 +27401,8 @@ MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired,
         description: (0, _propTypesDefault.default).string.isRequired,
-        genre: (0, _propTypesDefault.default).shape({
-            Name: (0, _propTypesDefault.default).string,
-            Description: (0, _propTypesDefault.default).string
-        }),
-        director: (0, _propTypesDefault.default).shape({
-            Name: (0, _propTypesDefault.default).string,
-            Bio: (0, _propTypesDefault.default).string,
-            Birth: (0, _propTypesDefault.default).string
-        })
+        genre: (0, _propTypesDefault.default).string,
+        director: (0, _propTypesDefault.default).string
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
