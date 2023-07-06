@@ -8,16 +8,16 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        fetch("https://git.heroku.com/movie-api-meran.git")
+        fetch("https://movie-api-meran.herokuapp.com/movies")
             .then((response) => response.json())
             .then((data) => {
-                const moviesFromApi = data.docs.map((doc) => {
+                const moviesFromApi = data.map((doc) => {
                     return {
-                        id: doc.key,
-                        title: doc.title,
-                        description: doc.description,
-                        genre: doc.genre,
-                        director: doc.director_name?.[0]
+                        id: doc._id,
+                        title: doc.Title,
+                        description: doc.Description,
+                        genre: doc.Genre.Name,
+                        director: doc.Director.Name
                     };
                 });
                 
