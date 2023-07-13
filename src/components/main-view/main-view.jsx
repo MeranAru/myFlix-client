@@ -54,9 +54,9 @@ export const MainView = () => {
                             path="/login"
                             element= {
                                 <>
-                                    {!user ? (
+                                    {user ? (
                                         <Navigate to="/" />
-                                    ) :(
+                                    ) : (
                                         <Col md={5}>
                                             <LoginView onLoggedIn={(user, token) => {
                                                 setUser(user);
@@ -84,13 +84,14 @@ export const MainView = () => {
                                 </>
                             }
                         />
+
                         <Route 
                             path="/"
                             element={
                                 <>
                                     {!user ? (
                                         <Navigate to="/login" replace />
-                                    ): movies.length === 0 ?(
+                                    ): movies.length === 0 ? (
                                         <Col>The list is empty!</Col>
                                         ) : (
                                             <>
