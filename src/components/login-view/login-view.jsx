@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./login-view.scss";
@@ -20,10 +20,10 @@ export const LoginView = ({ onLoggedIn }) => {
             method: "POST",
             body: JSON.stringify(data)
         }).then((response) => {
-            if(response.ok) {
+            if (response.ok) {
                 onLoggedIn(username);
             } else {
-                alert("Logged In Failed");
+                alert("Login Failed");
             }
         });
     };
