@@ -58,26 +58,24 @@ export const MainView = () => {
                             }
                         />
 
-                        <Route 
-                            path="/users"
-                            element= {
-                                <>
-                                    {user ? (
-                                        <Navigate to="/" />
-                                    ) : (
-                                        <Col md={5}>
-                                            <ProfileView 
-                                                loggedOut={() => {
-                                                setUser(null);
-                                                setMovies(null);
-                                                localStorage.clear();
-                                                }}
-                                                user={user}
-                                                movie={movies}
-                                            />
-                                        </Col>
-                                    )}
-                                </>
+                        <Route
+                            path="/profile"
+                            element={
+                            <>
+                                {!user ? (
+                                <Navigate to="/login" replace />
+                                ) : (
+                                <Col>
+                                    <ProfileView
+                                    user={user}
+                                    token={token}
+                                    setUser={setUser}
+                                    movies={movies}
+                                    onLogout={onLogout}
+                                    />
+                                </Col>
+                                )}
+                            </>
                             }
                         />
 
