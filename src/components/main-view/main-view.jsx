@@ -73,9 +73,7 @@ export const MainView = () => {
                                                 localStorage.clear();
                                                 }}
                                                 user={user}
-                                                token={token}
                                                 movie={movies}
-                                                updatedUser={updatedUser} 
                                             />
                                         </Col>
                                     )}
