@@ -16,7 +16,7 @@ export const LoginView = ({ onLoggedIn }) => {
             secret: password
         };
     
-        fetch("https://movie-api-meran.herokuapp.com/login.json", {
+        fetch("https://movie-api-meran.herokuapp.com/", {
             method: "POST",
             body: JSON.stringify(data)
         }).then((response) => {
