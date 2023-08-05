@@ -12,13 +12,12 @@ export const LoginView = ({ onLoggedIn }) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            "Username": username,
+            "Password": password
         };
-    
-        fetch("https://movie-api-meran.herokuapp.com/", {
-            method: "POST",
-            body: JSON.stringify(data)
+        console.log(data)
+        fetch("https://movie-api-meran.herokuapp.com/login?Username="+username+"&Password="+password, {
+            method: "POST"
         }).then((response) => {
             if (response.ok) {
                 onLoggedIn(username);
