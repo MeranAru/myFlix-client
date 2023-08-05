@@ -58,6 +58,24 @@ export const MainView = () => {
                             }
                         />
 
+                        <Route 
+                            path="/login"
+                            element= {
+                                <>
+                                    {user ? (
+                                        <Navigate to="/" />
+                                    ) : (
+                                        <Col md={5}>
+                                            <LoginView onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                setToken(token);
+                                            }} />
+                                        </Col>
+                                    )}
+                                </>
+                            }
+                        />
+
                         <Route
                             path="/profile"
                             element={
@@ -80,25 +98,7 @@ export const MainView = () => {
                         />
 
                         <Route 
-                            path="/login"
-                            element= {
-                                <>
-                                    {user ? (
-                                        <Navigate to="/" />
-                                    ) : (
-                                        <Col md={5}>
-                                            <LoginView onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                setToken(token);
-                                            }} />
-                                        </Col>
-                                    )}
-                                </>
-                            }
-                        />
-
-                        <Route 
-                            path="./movies/:movieId"
+                            path="/movies/:movieId"
                             element= {
                                 <>
                                     {!user ? (
