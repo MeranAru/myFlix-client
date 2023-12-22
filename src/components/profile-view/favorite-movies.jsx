@@ -6,7 +6,7 @@ import "./profile-view.scss";
 function FavoriteMovies( favoriteMovieList ) {
     const removeFav = (id) => {
         let token = localStorage.getItem('token');
-        let url = "https://movie-api-meran.herokuapp.com/users/${localStorage.getItem(user)}/movies/$(id)";
+        let url = "https://movie-api2-7e3e05174777.herokuapp.com/users/${localStorage.getItem(user)}/movies/$(id)";
         axios.delete(url, {
             headers: { Authorization: "Bearer ${token}" },
         })
