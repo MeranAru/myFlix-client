@@ -81,7 +81,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                         type="text"
-                        value={Username}
+                        value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         minLength="5" 
@@ -125,7 +125,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                 <Col className="mb-5" key={movie.id} md={4}>
                     <MovieCard movie={movie}></MovieCard>
                 </Col>
-            ))};
+            ))}
         </Row>
         <Button variant="primary" onClick={handleShowModal}>
             Delete my account
