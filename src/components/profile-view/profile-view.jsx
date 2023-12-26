@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
-import { ModalHeader } from "react-bootstrap";
 
 export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
     const [username, setUsername] = useState(user.Username);
@@ -13,6 +12,9 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
     const [email, setEmail] = useState(user.Email);
     const [birthday, setBirthday] = useState(user.BirthDate);
     const [showModal, setShowModal] = useState(false);
+    const favouriteMovies = movies.filter((movie) => {
+        return user.FavouriteMovies.includes(movie.id)
+    });
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
@@ -65,21 +67,21 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
 
     return (
         <>
-        <h1 className="text-white">Profile</h1>
+        <h1 className="text-black">Profile</h1>
         <Row>
-            <Col className="text-white">
-                <h3 className="text-white">Your profile details</h3>
+            <Col className="text-black">
+                <h3 className="text-black">Your profile details</h3>
                 <div>Username: {user.Username}</div>
                 <div>Email: {user.Email}</div>
             </Col>
             <Col>
-            <h3 className="text-white">Update your profile information here.</h3>
-            <Form onSubmit={handleSubmit} className="text-white">
+            <h3 className="text-black">Update your profile information here.</h3>
+            <Form onSubmit={handleSubmit} className="text-black">
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                         type="text"
-                        value={username}
+                        value={Username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         minLength="5" 
@@ -116,6 +118,14 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                 <Button variant="primary" type="submit">Save changes</Button>
             </Form>
             </Col>
+        </Row>
+        <Row className="text-black">
+            <h3>Favourite movies:</h3>
+            {favouriteMovies.map((movie) => (
+                <Col className="mb-5" key={movie.id} md={4}>
+                    <MovieCard movie={movie}></MovieCard>
+                </Col>
+            ))};
         </Row>
         <Button variant="primary" onClick={handleShowModal}>
             Delete my account
