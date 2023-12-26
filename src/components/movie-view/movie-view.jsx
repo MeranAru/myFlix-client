@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 
 export const MovieView = ({ movies, user, setUser, token }) => {
     const { movieId } = useParams();
-    const [ isFavorite, setIsFavorite ] = useState(false);
+    const [ isFavourite, setIsFavourite ] = useState(false);
 
     useEffect(() => {
-        const isFavorited = user.FavoriteMovies.includes(movieId)
-        setIsFavorite(isFavorited)
+        console.log(user);
+        const isFavourited = user.FavouriteMovies.includes(movieId)
+        setIsFavourite(isFavourited)
     }, []);
 
-    const removeFavorite = () => {
-        fetch(`https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}`, {
+    const removeFavourite = () => {
+        fetch("https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -26,15 +27,15 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             }
         }).then((data) => {
             if (data) {
-                setIsFavorite(false);
+                setIsFavourite(false);
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
             }
         })
     };
 
-    const addToFavorite = () => {
-        fetch(`https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}`, {
+    const addToFavourite = () => {
+        fetch("https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +47,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             }
         }).then((data) => {
             if (data) {
-                setIsFavorite(true);
+                setIsFavourite(true);
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
             }
@@ -67,10 +68,10 @@ export const MovieView = ({ movies, user, setUser, token }) => {
                 <Card.Text>Description: {movie.genre.description}</Card.Text>
             </Card.Body>
 
-            {isFavorite ? (
-                <Button onClick={removeFavorite}>Remove from favorites</Button>
+            {isFavourite ? (
+                <Button onClick={removeFavourite}>Remove from favourites</Button>
             ) : (
-                <Button onClick={addToFavorite}>Add to favorites</Button>
+                <Button onClick={addToFavourite}>Add to favourites</Button>
             )}
 
             <Link to={"/"}>
