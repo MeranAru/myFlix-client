@@ -48010,7 +48010,7 @@ const ProfileView = ({ user , token , setUser , movies , onLogout  })=>{
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                                 type: "text",
-                                                value: Username,
+                                                value: username,
                                                 onChange: (e)=>setUsername(e.target.value),
                                                 required: true,
                                                 minLength: "5"
@@ -48155,8 +48155,7 @@ const ProfileView = ({ user , token , setUser , movies , onLogout  })=>{
                             fileName: "src/components/profile-view/profile-view.jsx",
                             lineNumber: 125,
                             columnNumber: 17
-                        }, undefined)),
-                    ";"
+                        }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
