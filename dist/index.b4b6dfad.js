@@ -35938,7 +35938,7 @@ const MovieView = ({ movies , user , setUser , token  })=>{
         });
     };
     const addToFavourite = ()=>{
-        fetch("https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}", {
+        fetch(`https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
