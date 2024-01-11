@@ -47,8 +47,8 @@ export const LoginView = ({ onLoggedIn }) => {
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 />
-            
             </Form.Group>
+
             <Form.Group controlId="formPassword">
                 <Form.Label>Password: </Form.Label>
                 <Form.Control
@@ -58,6 +58,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 required
                 />
             </Form.Group>
+            
             <Button variant="primary" type="submit">Submit</Button>
         </Form>
     );
