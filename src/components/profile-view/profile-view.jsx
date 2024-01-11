@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
+import { ModalHeader } from "react-bootstrap";
 
 export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
     const [username, setUsername] = useState(user.Username);
