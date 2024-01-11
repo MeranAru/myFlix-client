@@ -6,16 +6,15 @@ import { Link } from "react-router-dom";
 
 export const MovieView = ({ movies, user, setUser, token }) => {
     const { movieId } = useParams();
-    const [ isFavourite, setIsFavourite ] = useState(false);
+    const [ isFavorite, setIsFavorite ] = useState(false);
 
     useEffect(() => {
-        console.log(user);
-        const isFavourited = user.FavouriteMovies.includes(movieId)
-        setIsFavourite(isFavourited)
+        const isFavorited = user.FavouriteMovies.includes(movieId)
+        setIsFavorite(isFavorited)
     }, []);
 
-    const removeFavourite = () => {
-        fetch("https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}", {
+    const removeFavorite = () => {
+        fetch(`https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -27,14 +26,14 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             }
         }).then((data) => {
             if (data) {
-                setIsFavourite(false);
+                setIsFavorite(false);
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
             }
         })
     };
 
-    const addToFavourite = () => {
+    const addToFavorite = () => {
         fetch(`https://movie-api2-7e3e05174777.herokuapp.com/users/${user.Username}/${movieId}`, {
             method: "PUT",
             headers: {
@@ -47,7 +46,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             }
         }).then((data) => {
             if (data) {
-                setIsFavourite(true);
+                setIsFavorite(true);
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
             }
@@ -68,10 +67,10 @@ export const MovieView = ({ movies, user, setUser, token }) => {
                 <Card.Text>Description: {movie.genre.description}</Card.Text>
             </Card.Body>
 
-            {isFavourite ? (
-                <Button onClick={removeFavourite}>Remove from favourites</Button>
+            {isFavorite ? (
+                <Button onClick={removeFavorite}>Remove from favorites</Button>
             ) : (
-                <Button onClick={addToFavourite}>Add to favourites</Button>
+                <Button onClick={addToFavorite}>Add to favorites</Button>
             )}
 
             <Link to={"/"}>
